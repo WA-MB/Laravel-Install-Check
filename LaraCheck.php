@@ -1,6 +1,6 @@
 <?php
 $requirements = ['BCMath', 'Ctype', 'Fileinfo', 'JSON', 'Mbstring', 'OpenSSL', 'PDO', 'Tokenizer', 'XML'];
-$optionals = ['GD', 'Imagick', 'V8js'];
+$optionals = ['GD', 'Imagick', 'V8js', 'SQLite3', 'MySQLi', 'Zip', 'IconV'];
 $packages = [
         ['name' => 'Laravel Media Uploader', 'url' => 'https://github.com/ahmed-aliraqi/laravel-media-uploader'],
         ['name' => 'Laravel Debugbar', 'url' => 'https://github.com/barryvdh/laravel-debugbar'],

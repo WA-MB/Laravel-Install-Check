@@ -1,6 +1,18 @@
-<?php $requirements = ['BCMath', 'Ctype', 'Fileinfo', 'JSON', 'Mbstring', 'OpenSSL', 'PDO', 'Tokenizer', 'XML'];
+<?php
+$url = file_get_contents("https://repo.packagist.org/p2/laravel/framework.json");
+$decoded_json = json_decode($url, true);
+
+$php_needed = $decoded_json["packages"]["laravel/framework"][0]["require"]["php"];
+
+$requirements = ['BCMath', 'Ctype', 'cURL', 'DOM', 'Fileinfo', 'JSON', 'Mbstring', 'OpenSSL', 'PCRE', 'PDO', 'Tokenizer', 'XML'];
 $optionals = ['GD', 'Imagick', 'V8js', 'SQLite3', 'MySQLi', 'SQLite3', 'Zip', 'IconV'];
-$packages = [['name' => 'Media Uploader', 'url' => 'https://github.com/ahmed-aliraqi/laravel-media-uploader', 'composer' => 'ahmed-aliraqi/laravel-media-uploader'], ['name' => 'Debugbar', 'url' => 'https://github.com/barryvdh/laravel-debugbar', 'composer' => 'barryvdh/laravel-debugbar --dev'], ['name' => 'IDE Helper Generator', 'url' => 'https://github.com/barryvdh/laravel-ide-helper', 'composer' => 'barryvdh/laravel-ide-helper --dev'], ['name' => 'DOMPDF Wrapper', 'url' => 'https://github.com/barryvdh/laravel-dompdf', 'composer' => 'barryvdh/laravel-dompdf'], ['name' => 'Intervention Image', 'url' => 'http://image.intervention.io/getting_started/installation#laravel', 'composer' => 'intervention/image'], ['name' => 'Schematics', 'url' => 'https://github.com/mtolhuys/laravel-schematics', 'composer' => 'mtolhuys/laravel-schematics'], ['name' => 'Livewire', 'url' => 'https://laravel-livewire.com/docs/quickstart', 'composer' => 'livewire/livewire'], ['name' => 'Boilerplate', 'url' => 'https://laravel-boilerplate.com/', 'composer' => '']];
+$packages = [
+    ['name' => 'Debugbar', 'url' => 'https://github.com/barryvdh/laravel-debugbar', 'composer' => 'barryvdh/laravel-debugbar --dev'],
+    ['name' => 'IDE Helper Generator', 'url' => 'https://github.com/barryvdh/laravel-ide-helper', 'composer' => 'barryvdh/laravel-ide-helper --dev'],
+    ['name' => 'DOMPDF Wrapper', 'url' => 'https://github.com/barryvdh/laravel-dompdf', 'composer' => 'barryvdh/laravel-dompdf'],
+    ['name' => 'Intervention Image', 'url' => 'http://image.intervention.io/getting_started/installation#laravel', 'composer' => 'intervention/image'],
+    ['name' => 'Livewire', 'url' => 'https://laravel-livewire.com/docs/quickstart', 'composer' => 'livewire/livewire']
+];
 $title = 'Laravel Server-Requirements Check'; ?>
 <!doctype html>
 <html lang="de">
@@ -47,7 +59,6 @@ $title = 'Laravel Server-Requirements Check'; ?>
         abbr[title] {
             border-bottom: 0;
             text-decoration: underline;
-            text-decoration: underline dotted
         }
 
         b, strong {
@@ -235,22 +246,6 @@ $title = 'Laravel Server-Requirements Check'; ?>
             border-color: #9b4dca
         }
 
-        .button.button-outline, button.button-outline, input[type='button'].button-outline, input[type='reset'].button-outline, input[type='submit'].button-outline {
-            background-color: transparent;
-            color: #9b4dca
-        }
-
-        .button.button-outline:focus, .button.button-outline:hover, button.button-outline:focus, button.button-outline:hover, input[type='button'].button-outline:focus, input[type='button'].button-outline:hover, input[type='reset'].button-outline:focus, input[type='reset'].button-outline:hover, input[type='submit'].button-outline:focus, input[type='submit'].button-outline:hover {
-            background-color: transparent;
-            border-color: #606c76;
-            color: #606c76
-        }
-
-        .button.button-outline[disabled]:focus, .button.button-outline[disabled]:hover, button.button-outline[disabled]:focus, button.button-outline[disabled]:hover, input[type='button'].button-outline[disabled]:focus, input[type='button'].button-outline[disabled]:hover, input[type='reset'].button-outline[disabled]:focus, input[type='reset'].button-outline[disabled]:hover, input[type='submit'].button-outline[disabled]:focus, input[type='submit'].button-outline[disabled]:hover {
-            border-color: inherit;
-            color: #9b4dca
-        }
-
         .button.button-clear, button.button-clear, input[type='button'].button-clear, input[type='reset'].button-clear, input[type='submit'].button-clear {
             background-color: transparent;
             border-color: transparent;
@@ -346,12 +341,6 @@ $title = 'Laravel Server-Requirements Check'; ?>
             display: inline
         }
 
-        .label-inline {
-            display: inline-block;
-            font-weight: normal;
-            margin-left: .5rem
-        }
-
         .container {
             margin: 0 auto;
             max-width: 160.0rem;
@@ -367,36 +356,8 @@ $title = 'Laravel Server-Requirements Check'; ?>
             width: 100%
         }
 
-        .row.row-no-padding {
-            padding: 0
-        }
-
         .row.row-no-padding > .column {
             padding: 0
-        }
-
-        .row.row-wrap {
-            flex-wrap: wrap
-        }
-
-        .row.row-top {
-            align-items: flex-start
-        }
-
-        .row.row-bottom {
-            align-items: flex-end
-        }
-
-        .row.row-center {
-            align-items: center
-        }
-
-        .row.row-stretch {
-            align-items: stretch
-        }
-
-        .row.row-baseline {
-            align-items: baseline
         }
 
         .row .column {
@@ -405,117 +366,6 @@ $title = 'Laravel Server-Requirements Check'; ?>
             margin-left: 0;
             max-width: 100%;
             width: 100%
-        }
-
-        .row .column.column-offset-10 {
-            margin-left: 10%
-        }
-
-        .row .column.column-offset-20 {
-            margin-left: 20%
-        }
-
-        .row .column.column-offset-25 {
-            margin-left: 25%
-        }
-
-        .row .column.column-offset-33, .row .column.column-offset-34 {
-            margin-left: 33.3333%
-        }
-
-        .row .column.column-offset-40 {
-            margin-left: 40%
-        }
-
-        .row .column.column-offset-50 {
-            margin-left: 50%
-        }
-
-        .row .column.column-offset-60 {
-            margin-left: 60%
-        }
-
-        .row .column.column-offset-66, .row .column.column-offset-67 {
-            margin-left: 66.6666%
-        }
-
-        .row .column.column-offset-75 {
-            margin-left: 75%
-        }
-
-        .row .column.column-offset-80 {
-            margin-left: 80%
-        }
-
-        .row .column.column-offset-90 {
-            margin-left: 90%
-        }
-
-        .row .column.column-10 {
-            flex: 0 0 10%;
-            max-width: 10%
-        }
-
-        .row .column.column-20 {
-            flex: 0 0 20%;
-            max-width: 20%
-        }
-
-        .row .column.column-25 {
-            flex: 0 0 25%;
-            max-width: 25%
-        }
-
-        .row .column.column-33, .row .column.column-34 {
-            flex: 0 0 33.3333%;
-            max-width: 33.3333%
-        }
-
-        .row .column.column-40 {
-            flex: 0 0 40%;
-            max-width: 40%
-        }
-
-        .row .column.column-50 {
-            flex: 0 0 50%;
-            max-width: 50%
-        }
-
-        .row .column.column-60 {
-            flex: 0 0 60%;
-            max-width: 60%
-        }
-
-        .row .column.column-66, .row .column.column-67 {
-            flex: 0 0 66.6666%;
-            max-width: 66.6666%
-        }
-
-        .row .column.column-75 {
-            flex: 0 0 75%;
-            max-width: 75%
-        }
-
-        .row .column.column-80 {
-            flex: 0 0 80%;
-            max-width: 80%
-        }
-
-        .row .column.column-90 {
-            flex: 0 0 90%;
-            max-width: 90%
-        }
-
-        .row .column .column-top {
-            align-self: flex-start
-        }
-
-        .row .column .column-bottom {
-            align-self: flex-end
-        }
-
-        .row .column .column-center {
-            align-self: center
         }
 
         @media (min-width: 40rem) {
@@ -651,20 +501,6 @@ $title = 'Laravel Server-Requirements Check'; ?>
             max-width: 100%
         }
 
-        .clearfix:after {
-            clear: both;
-            content: ' ';
-            display: table
-        }
-
-        .float-left {
-            float: left
-        }
-
-        .float-right {
-            float: right
-        }
-
         .img path {
             animation: 7s a forwards;
             fill: #9b4dca;
@@ -682,14 +518,13 @@ $title = 'Laravel Server-Requirements Check'; ?>
             <table>
                 <tr>
                     <td><a href="https://laravel.com" target="_blank" rel="noopener"><img
-                                    src="laravel.logo.complete.svg" width="184"></a></td>
+                                    src="laravel.logo.complete.svg" width="184" alt="Laravel Logo"></a></td>
                     <td><a href="https://packagist.org/packages/laravel/framework" target="_blank"><img
                                     src="https://poser.pugx.org/laravel/framework/v/stable.svg"
                                     alt="Latest Stable Version"></a></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><h3>
-                            <?php echo $title; ?></h3></td>
+                    <td colspan="2"><h3><?php echo $title; ?></h3></td>
                 </tr>
             </table>
         </div>
@@ -698,7 +533,9 @@ $title = 'Laravel Server-Requirements Check'; ?>
         <div class="column">
             <table>
                 <thead>
-                <tr><th colspan="3">Required</th></tr>
+                <tr>
+                    <th colspan="3">Required</th>
+                </tr>
                 <tr>
                     <th>needed</th>
                     <th>have</th>
@@ -707,9 +544,9 @@ $title = 'Laravel Server-Requirements Check'; ?>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>PHP >= 7.3</td>
+                    <td>PHP <?php echo $php_needed ?></td>
                     <td><?php echo phpversion(); ?></td>
-                    <td><?php if (version_compare(phpversion(), '7.3', '>')) {
+                    <td><?php if (version_compare(phpversion(), $php_needed, '>')) {
                             echo '&nbsp;&nbsp;<svg
 xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>';
                         } else {
@@ -719,7 +556,7 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                 </tr>
                 <?php foreach ($requirements as $requirement) {
                     echo '<tr>';
-                    echo '<td>'.$requirement.'</td><td>'.$requirement.'</td>';
+                    echo '<td>' . $requirement . '</td><td>' . $requirement . '</td>';
                     echo '<td>';
                     if (extension_loaded(strtolower($requirement))) {
                         echo '&nbsp;&nbsp;<svg
@@ -731,7 +568,9 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                     echo '</td>';
                     echo '</tr>';
                 } ?>
-                <tr><th colspan="3">Optional</th></tr>
+                <tr>
+                    <th colspan="3">Optional</th>
+                </tr>
                 <tr>
                     <th>needed</th>
                     <th>have</th>
@@ -739,7 +578,7 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                 </tr>
                 <?php foreach ($optionals as $optional) {
                     echo '<tr>';
-                    echo '<td>'.$optional.'</td><td>'.$optional.'</td>';
+                    echo '<td>' . $optional . '</td><td>' . $optional . '</td>';
                     echo '<td>';
                     if (extension_loaded(strtolower($optional))) {
                         echo '&nbsp;&nbsp;<svg
@@ -764,14 +603,20 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p style="font-weight: bold">Getting Started with Laravel Installer as a global Composer dependency</p>
+                        <p style="font-weight: bold">Getting Started with Laravel Installer as a global Composer
+                            dependency</p>
                         <pre><code>composer global require laravel/installer<br>laravel new example-app<br>cd example-app<br>php artisan serve</code></pre>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p style="font-weight: bold">Getting Started with Docker Desktop</p>
+                        <p style="font-weight: bold">Laravel & Docker</p>
+                        <p style="font-weight: bold">Getting Started On macOS</p>
                         <pre><code>curl -s "https://laravel.build/example-app" | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
+                        <p style="font-weight: bold">Getting Started On Windows</p>
+                        <pre><code>curl -s https://laravel.build/example-app | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
+                        <p style="font-weight: bold">Getting Started On Linux</p>
+                        <pre><code>curl -s https://laravel.build/example-app | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
                     </td>
                 </tr>
                 <tr>
@@ -796,7 +641,7 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
     <div class="row">
         <div class="column">
             <p style="text-align: center">created with  
-                <svg class="img" height="24" version="1.1" viewBox="0 0 463 669">
+                <svg class="img" height="24" viewBox="0 0 463 669">
                     <g transform="translate(0.000000,669.000000) scale(0.100000,-0.100000)">
                         <path d="M2303 6677c-11-13-58-89-393-627-128-206-247-397-265-425-18-27-85-135-150-240-65-104-281-451-480-770-358-575-604-970-641-1032-10-18-45-74-76-126-47-78-106-194-107-212-1-3-11-26-24-53-60-118-132-406-157-623-19-158-8-491 20-649 82-462 291-872 619-1213 192-199 387-340 646-467 335-165 638-235 1020-235 382 0 685 70 1020 235 259 127 454 268 646 467 328 341 537 751 619 1213 28 158 39 491 20 649-25 217-97 505-157 623-13 27-23 50-23 53 0 16-57 127-107 210-32 52-67 110-77 128-37 62-283 457-641 1032-199 319-415 666-480 770-65 105-132 213-150 240-18 28-137 219-265 425-354 570-393 630-400 635-4 3-12-1-17-8zm138-904c118-191 654-1050 1214-1948 148-236 271-440 273-452 2-13 8-23 11-23 14 0 72-99 125-212 92-195 146-384 171-598 116-974-526-1884-1488-2110-868-205-1779 234-2173 1046-253 522-257 1124-10 1659 45 97 108 210 126 225 4 3 9 13 13 22 3 9 126 209 273 445 734 1176 1102 1766 1213 1946 67 108 124 197 126 197 2 0 59-89 126-197zM1080 3228c-75-17-114-67-190-243-91-212-128-368-137-580-34-772 497-1451 1254-1605 77-15 112-18 143-11 155 35 212 213 106 329-32 36-62 48-181 75-223 50-392 140-552 291-115 109-178 192-242 316-101 197-136 355-128 580 3 111 10 167 30 241 30 113 80 237 107 267 11 12 20 26 20 32 0 6 8 22 17 36 26 41 27 99 3 147-54 105-142 149-250 125z"></path>
                     </g>

@@ -7,11 +7,9 @@ $php_needed = $decoded_json["packages"]["laravel/framework"][0]["require"]["php"
 $requirements = ['BCMath', 'Ctype', 'cURL', 'DOM', 'Fileinfo', 'JSON', 'Mbstring', 'OpenSSL', 'PCRE', 'PDO', 'Tokenizer', 'XML'];
 $optionals = ['GD', 'Imagick', 'V8js', 'SQLite3', 'MySQLi', 'SQLite3', 'Zip', 'IconV'];
 $packages = [
-    ['name' => 'Debugbar', 'url' => 'https://github.com/barryvdh/laravel-debugbar', 'composer' => 'barryvdh/laravel-debugbar --dev'],
-    ['name' => 'IDE Helper Generator', 'url' => 'https://github.com/barryvdh/laravel-ide-helper', 'composer' => 'barryvdh/laravel-ide-helper --dev'],
     ['name' => 'DOMPDF Wrapper', 'url' => 'https://github.com/barryvdh/laravel-dompdf', 'composer' => 'barryvdh/laravel-dompdf'],
-    ['name' => 'Intervention Image', 'url' => 'http://image.intervention.io/getting_started/installation#laravel', 'composer' => 'intervention/image intervention/imagecache'],
-    ['name' => 'Livewire', 'url' => 'https://laravel-livewire.com/docs/quickstart', 'composer' => 'livewire/livewire']
+    ['name' => 'Intervention Image', 'url' => 'https://image.intervention.io/v3', 'composer' => 'intervention/image-laravel'],
+    ['name' => 'Livewire', 'url' => 'https://livewire.laravel.com/docs/quickstart', 'composer' => 'livewire/livewire']
 ];
 $title = 'Laravel Server-Requirements Check'; ?>
 <!doctype html>

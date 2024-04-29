@@ -9,7 +9,8 @@ $optionals = ['GD', 'Imagick', 'V8js', 'SQLite3', 'MySQLi', 'SQLite3', 'Zip', 'I
 $packages = [
     ['name' => 'DOMPDF Wrapper', 'url' => 'https://github.com/barryvdh/laravel-dompdf', 'composer' => 'barryvdh/laravel-dompdf'],
     ['name' => 'Intervention Image', 'url' => 'https://image.intervention.io/v3', 'composer' => 'intervention/image-laravel'],
-    ['name' => 'Livewire', 'url' => 'https://livewire.laravel.com/docs/quickstart', 'composer' => 'livewire/livewire']
+    ['name' => 'Livewire', 'url' => 'https://livewire.laravel.com/docs/quickstart', 'composer' => 'livewire/livewire'],
+    ['name' => 'Filament', 'url' => 'https://filamentphp.com/docs', 'composer' => 'filament/filament:"^3.2" -W']
 ];
 $title = 'Laravel Server-Requirements Check'; ?>
 <!doctype html>
@@ -608,19 +609,23 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p style="font-weight: bold">Laravel & Docker</p>
-                        <p style="font-weight: bold">Getting Started On macOS</p>
-                        <pre><code>curl -s "https://laravel.build/example-app" | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
-                        <p style="font-weight: bold">Getting Started On Windows</p>
-                        <pre><code>curl -s https://laravel.build/example-app | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
-                        <p style="font-weight: bold">Getting Started On Linux</p>
-                        <pre><code>curl -s https://laravel.build/example-app | bash<br>cd example-app<br>./vendor/bin/sail up</code></pre>
+                        <p style="font-weight: bold"><a href="https://laravel.com/docs/11.x#docker-installation-using-sail" rel="nofollow" target="_blank">Docker Installation Using Sail</a></p>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <p style="font-weight: bold">Installation Via Composer</p>
-                        <pre><code>composer global require laravel/installer</code></pre>
+                        <p style="font-weight: bold">Laravel Herd</p>
+                        <p><small>Herd is a blazing fast, native Laravel and PHP development environment for Windows. It includes everything you need to get started with Laravel development, including PHP and nginx. Once you install Herd, you're ready to start developing with Laravel.</small></p>
+                        <p style="font-weight: bold">
+                            <a class="button" href="https://herd.laravel.com/windows" rel="nofollow" target="_blank">
+                                Windows
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512"><path fill="#FFFFFF" d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+                            </a>
+                            <a class="button" href="https://herd.laravel.com/windows" rel="nofollow" target="_blank">
+                                MacOS
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 384 512"><path fill="#FFFFFF" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                            </a>
+                        </p>
                     </td>
                 </tr>
             </table>

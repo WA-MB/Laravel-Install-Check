@@ -4,8 +4,8 @@ $decoded_json = json_decode($url, true);
 
 $php_needed = $decoded_json["packages"]["laravel/framework"][0]["require"]["php"];
 
-$requirements = ['BCMath', 'Ctype', 'cURL', 'DOM', 'Fileinfo', 'JSON', 'Mbstring', 'OpenSSL', 'PCRE', 'PDO', 'Tokenizer', 'XML'];
-$optionals = ['GD', 'Imagick', 'V8js', 'SQLite3', 'MySQLi', 'SQLite3', 'Zip', 'IconV'];
+$requirements = ['Ctype', 'cURL', 'DOM', 'Fileinfo', 'Filter', 'Hash', 'Mbstring', 'OpenSSL', 'PCRE', 'PDO', 'Session', 'Tokenizer', 'XML'];
+$optionals = ['GD', 'Imagick', 'V8js', 'IMAP', 'MySQLi', 'PostgreSQL', 'SQLite3', 'Zip', 'IconV', 'APCu', 'Memcached', 'Redis', 'FTP', 'PCNTL', 'POSIX'];
 $packages = [
     ['name' => 'DOMPDF Wrapper', 'url' => 'https://github.com/barryvdh/laravel-dompdf', 'composer' => 'barryvdh/laravel-dompdf'],
     ['name' => 'Intervention Image', 'url' => 'https://image.intervention.io/v3', 'composer' => 'intervention/image-laravel'],
@@ -517,10 +517,10 @@ $title = 'Laravel Server-Requirements Check'; ?>
             <table>
                 <tr>
                     <td><a href="https://laravel.com" target="_blank" rel="noopener"><img
-                                    src="laravel.logo.complete.svg" width="184" alt="Laravel Logo"></a></td>
+                                src="laravel.logo.complete.svg" width="184" alt="Laravel Logo"></a></td>
                     <td><a href="https://packagist.org/packages/laravel/framework" target="_blank"><img
-                                    src="https://poser.pugx.org/laravel/framework/v/stable.svg"
-                                    alt="Latest Stable Version"></a></td>
+                                src="https://poser.pugx.org/laravel/framework/v/stable.svg"
+                                alt="Latest Stable Version"></a></td>
                 </tr>
                 <tr>
                     <td colspan="2"><h3><?php echo $title; ?></h3></td>
@@ -536,26 +536,20 @@ $title = 'Laravel Server-Requirements Check'; ?>
                     <th colspan="3">Required</th>
                 </tr>
                 <tr>
+                    <th>name</th>
                     <th>needed</th>
                     <th>have</th>
-                    <th>result</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>PHP <?php echo $php_needed ?></td>
+                    <td>PHP</td>
+                    <td><?php echo $php_needed ?></td>
                     <td><?php echo phpversion(); ?></td>
-                    <td><?php if (version_compare(phpversion(), $php_needed, '>')) {
-                            echo '&nbsp;&nbsp;<svg
-xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>';
-                        } else {
-                            echo phpversion() . '&nbsp;&nbsp;<svg
-xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>';
-                        } ?></td>
                 </tr>
                 <?php foreach ($requirements as $requirement) {
                     echo '<tr>';
-                    echo '<td>' . $requirement . '</td><td>' . $requirement . '</td>';
+                    echo '<td colspan="2">' . $requirement . '</td>';
                     echo '<td>';
                     if (extension_loaded(strtolower($requirement))) {
                         echo '&nbsp;&nbsp;<svg
@@ -571,13 +565,13 @@ xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 352 512">
                     <th colspan="3">Optional</th>
                 </tr>
                 <tr>
+                    <th>name</th>
                     <th>needed</th>
                     <th>have</th>
-                    <th>result</th>
                 </tr>
                 <?php foreach ($optionals as $optional) {
                     echo '<tr>';
-                    echo '<td>' . $optional . '</td><td>' . $optional . '</td>';
+                    echo '<td colspan="2">' . $optional . '</td>';
                     echo '<td>';
                     if (extension_loaded(strtolower($optional))) {
                         echo '&nbsp;&nbsp;<svg
